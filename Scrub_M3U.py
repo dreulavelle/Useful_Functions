@@ -7,12 +7,13 @@ def scrub_m3u(input_file, output_file, language):
         for line1, line2 in zip(f, f):
             line1 = line1.split('\n')[0]
             line2 = line2.split('\n')[0]
-            if ('(1080p)' in line1) or ('(720p)' in line1) and (f'tvg-language="{language}"' in line1):
-                lst.append(line1 + '\n' + line2 + '\n')
-            else:
-                pass
-                
-    with open(output_file, 'a') as w:
+            if language in line1:
+                if '(1080p)' in line1:
+                    lst.append(line1 + '\n' + line2 + '\n')
+                else:
+                    pass
+
+    with open(output_file, 'r+') as w:
         w.writelines('#EXTM3U\n')
         w.writelines(lst)
 
