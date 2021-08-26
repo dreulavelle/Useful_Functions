@@ -1,5 +1,5 @@
 def scrub_m3u(input_file, output_file, language):
-    # Output file containing only 1080p or 720p streams
+    # Output file containing only 1080p streams
     # In your designated language.
     lst = []
     language = f'tvg-language="{language}"'
